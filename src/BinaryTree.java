@@ -53,7 +53,7 @@ public class BinaryTree<T extends Comparable<T>> {
         }
         int leftSize = size(root.left);
         int rightSize = size(root.right);
-
+        //adding the right+left node elemnents + 1 for main root
         return leftSize+rightSize+1;
 
     }
@@ -65,12 +65,31 @@ public class BinaryTree<T extends Comparable<T>> {
     }
     private int height(node<T> root){
         if(root ==null){
-            return -1;
+            return 0;
         }
         int leftHeight = height(root.left);
         int rightHeight = height(root.right);
-
+        //using math.max function for finding the max height of either of the subtree +1 for the main root element
         return Math.max(leftHeight, rightHeight)+1;
     }
+
+    //For searching elements in tree
+    public boolean searchElement(T data){
+        return search(root, data);
+    }
     
+    private boolean search(node<T> root, T data){
+        if(root == null){
+            return false;
+        }
+        if(root.data.equals(data)){
+            return true;
+        }
+        if(data.compareTo(root.data) < 0){
+            return search(root.left,data);
+        }else{
+            return search(root.right,data);
+        }
+
+    }
 }

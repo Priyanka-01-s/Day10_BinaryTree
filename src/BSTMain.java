@@ -30,5 +30,13 @@ public class BSTMain {
         System.out.println("\nThe size of the tree :"+expectedSize);
 
         System.out.println("\nThe Height of the BST :"+bst.heightTree());
+
+        Integer searchElement = 63;
+
+        if(bst.searchElement(searchElement)){
+            System.out.println("\n" + searchElement+ " found in BST");
+        }else{
+            System.out.println("\n" + searchElement+ " not found in BST");
+        }
     }
 }
