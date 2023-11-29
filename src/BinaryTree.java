@@ -28,6 +28,7 @@ public class BinaryTree<T extends Comparable<T>> {
 
     }
 
+    // displaying the tree in a inorder traversal method`
     public void inOrderTraversal(){
         inorderTraversal(root);
         
@@ -38,8 +39,38 @@ public class BinaryTree<T extends Comparable<T>> {
             inorderTraversal(root.left);
             System.out.print(root.data+ " ");
             inorderTraversal(root.right);
+        }      
+    }
+
+    //calculating the size of the tree or the number of nodes int the tree
+    public int sizeTree(){
+        return size(root);
+    }
+
+    private int size(node<T> root){
+        if(root == null){
+            return 0;
         }
-        
+        int leftSize = size(root.left);
+        int rightSize = size(root.right);
+
+        return leftSize+rightSize+1;
 
     }
+
+    //calculating the height of the tree 
+
+    public int heightTree(){
+        return height(root);
+    }
+    private int height(node<T> root){
+        if(root ==null){
+            return -1;
+        }
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+
+        return Math.max(leftHeight, rightHeight)+1;
+    }
+    
 }
